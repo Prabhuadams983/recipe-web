@@ -1,0 +1,28 @@
+mat-card-title{
+    font-family: 'Pacifico','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    text-align: center;
+}
+mat-card{
+    color: #ff4081;
+    width: 90%;
+    margin: 20px auto;
+    min-height: calc(100vh - 20vh);
+}
+mat-card-content{
+    padding: 2rem;
+    display: flex;
+}
+.list-container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+    border-right: 1px solid grey;
+}
+mat-radio-button{
+    font-family: 'Josefin Sans','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
