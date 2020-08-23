@@ -1,0 +1,30 @@
+mat-card{
+    width:30%;
+    margin: 20px auto;
+    color: #ff4081;
+    padding: 10px!important;
+    font-family: 'Josefin Sans','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+mat-card-title{
+    text-align: center;
+}
+.category{
+    text-align: center;
+    cursor:pointer;
+}
+.category img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.category p{
+    font-weight: 400;
+    font-size: 1rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+mat-card-content{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
