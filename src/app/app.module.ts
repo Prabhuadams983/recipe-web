@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './utils/material/material';
 import { RecipesComponent } from './recipes/recipes.component';
+import { RecipesListComponent } from './recipes-list/recipes-list.component';
+import { RecipeItemComponent } from './recipes-list/recipe-item/recipe-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RecipesComponent
+    RecipesComponent,
+    RecipesListComponent,
+    RecipeItemComponent
   ],
   imports: [
     BrowserModule,
