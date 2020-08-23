@@ -2,7 +2,7 @@ mat-card{
     width: 150px;
     height: 150px;
     cursor: pointer;
-    margin: 20px 35px;
+    margin: 20px;
 }
 mat-card h5{
     color: #ff4081;
