@@ -1,7 +1,7 @@
 <mat-toolbar color="accent">
     <span>Find Recipes</span>
     <div class="search">
-        <input type="text" placeholder="Search for a recipe">
+        <input type="text" placeholder="Search for a recipe" [(ngModel)]="recipeName" (keyup)="get($event)">
     </div>
     <div class="toolbar-button">
         <button mat-raised-button color="accent">Add</button>
@@ -9,4 +9,4 @@
 </mat-toolbar>
 <app-filters></app-filters>
 
-<app-recipes-list></app-recipes-list>
+<app-recipes-list [recipes]="recipesList"></app-recipes-list>
