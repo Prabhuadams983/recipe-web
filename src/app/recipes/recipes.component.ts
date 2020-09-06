@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddComponent } from './add/add.component';
 
 @Component({
   selector: 'app-recipes',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog:MatDialog) { }
 
   ngOnInit() {
   }
 
+  clickAdd(){
+    this.dialog.open(AddComponent,{width:"250px"});
+  }
 }

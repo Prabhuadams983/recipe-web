@@ -1,0 +1,34 @@
+<mat-toolbar>
+    <span>Add Your Recipe</span>
+    <button mat-raised-button color="accent" (click)="saveRecipe()">Post</button>
+
+ </mat-toolbar>
+
+  <mat-radio-group>
+    <mat-radio-button value="V">Veg </mat-radio-button>
+    <mat-radio-button value="NV" style="margin-left: 1%;">Non-veg </mat-radio-button>
+</mat-radio-group>
+
+<mat-form-field color="accent" appearance="fill">
+    <mat-label>Select Category</mat-label>
+    <mat-select>
+      <mat-option value="NI">North Indian</mat-option>
+      <mat-option value="NI">south Indian</mat-option>
+      <mat-option value="NI">Chinese</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field color="accent" class="example-full-width">
+    <mat-label>Recipe Name</mat-label>
+    <input matInput   >
+  </mat-form-field>
+
+  <div>
+    
+    <mat-label for="comment">Add recipe steps:</mat-label>
+    <textarea  rows="20" cols="170" id="comment" placeholder="Step1, Step2, Step3........."></textarea>
+
+  </div>
+
+
