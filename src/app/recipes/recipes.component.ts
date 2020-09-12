@@ -14,6 +14,11 @@ export class RecipesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.recipeService.getRecipesList().subscribe((res) =>{
+      if(res['status'] == 200){
+        this.recipesList = res['recipes'];
+      }
+    });
   }
 
   get(event){
@@ -24,6 +29,11 @@ export class RecipesComponent implements OnInit {
             this.recipesList = res['recipes'];
           }
         });
+    }else{
+      if(this.recipeName.length === 1){
+        this.recipeService.name = "";
+        this.ngOnInit();
+      }
     }
   }
 
