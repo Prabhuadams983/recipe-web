@@ -4,9 +4,9 @@
         <input type="text" placeholder="Search for a recipe" [(ngModel)]="recipeName" (keydown)="get($event)">
     </div>
     <div class="toolbar-button">
-        <button mat-raised-button color="accent" (click)="clickAdd()">Add</button>
+        <button mat-raised-button class="custom-btn" (click)="clickAdd()">Add</button>
     </div>
 </mat-toolbar>
 <app-filters></app-filters>
 
-<app-recipes-list [recipes]="recipesList" (recipesEmitter)="loadRecipes($event)"></app-recipes-list>
+<app-recipes-list></app-recipes-list>

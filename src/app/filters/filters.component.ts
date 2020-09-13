@@ -7,9 +7,7 @@ import { RecipeService } from '../services/recipe.service';
   styleUrls: ['./filters.component.css']
 })
 export class FiltersComponent implements OnInit {
-  menu:string;
-  recipesList:any[] = [];
-  @Output() recipesEmitter = new EventEmitter();
+  menu:string='';
   constructor(private recipeService:RecipeService) { }
 
   ngOnInit() {
@@ -17,22 +15,8 @@ export class FiltersComponent implements OnInit {
 
   onSelect(categoryType){
     this.menu = categoryType;
-    if(this.menu){
-      this.recipeService.category = this.menu;
-      this.recipeService.getRecipesList().subscribe((res) => {
-        if(res['status'] == 200){
-          this.recipesList = res['recipes'];
-          this.recipesEmitter.emit(this.recipesList);
-        }
-      });
-    }else{
-      this.recipeService.category = this.menu;
-      this.recipeService.getRecipesList().subscribe((res) => {
-        if(res['status'] == 200){
-          this.recipesList = res['recipes'];
-    }
-  });
-  }
+    this.recipeService.category = categoryType;
+    this.recipeService.getRecipesList();
 }
 
 }

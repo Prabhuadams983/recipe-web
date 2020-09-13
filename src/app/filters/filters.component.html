@@ -1,5 +1,9 @@
 <mat-card>
     <mat-card-content>
+            <div class="category" [ngClass]="{'active':menu === ''}" (click)="onSelect('')">
+                <img src="assets/assorted-salads-on-bowls-1640773.jpg">
+                <p>All</p>
+        </div>
         <div class="category" [ngClass]="{'active':menu === 'NI'}" (click)="onSelect('NI')">
             <img src="assets/north-indian.jpg">
             <p>North Indian</p>

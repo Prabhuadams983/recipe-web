@@ -1,9 +1,15 @@
 <mat-card>
     <mat-card-title>Recipes</mat-card-title>
     <mat-card-content>
-        <div class="list-container">
+        <div class="list-container" *ngIf="recipes;else empty">
             <app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-item>
         </div>
+        <ng-template #empty>
+            <div class="empty-screen">
+                <img src="../../assets/20096.jpg" width="300" height="300">
+                <h3>No Recipes Found</h3>
+            </div>
+        </ng-template>
         <div class="filter-container">
             <mat-card-title>Filters</mat-card-title>
             <mat-card-content>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,6 +9,7 @@ export class RecipeService {
   public name:string;
   public type:string;
   public category:string;
+  public recipesList = new Subject();
   constructor(private _http:HttpClient) { }
 
   getRecipesList(){
@@ -18,16 +20,23 @@ export class RecipeService {
     if(this.category){
       params = params.append('category',this.category);
     }
-    if(this.name){
-      params = params.append('name',this.name);
-    }
-    return this._http.get(`${this.url}/get`,{params});
+    this._http.get(`${this.url}/get`,{params}).subscribe((res) =>{
+      if(res['status'] == 200){
+        this.recipesList.next(res['recipes']);
+      }
+    });
   }
 
   addRecipe(data){
-    this._http.post(this.url+'/add',data).subscribe((response)=>{
-  
+    return this._http.post(this.url+'/add',data);
+}
 
+searchRecipe(name){
+  const params = new HttpParams().set('name',name);
+  this._http.get(`${this.url}/search`,{params}).subscribe((res) =>{
+    if(res['status'] == 200){
+      this.recipesList.next(res['recipes']);
+    }
   });
 }
 }

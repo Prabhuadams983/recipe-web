@@ -32,7 +32,7 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RecipeService,FiltersComponent],
+  providers: [RecipeService],
   entryComponents:[AddComponent],
   bootstrap: [AppComponent]
 })
