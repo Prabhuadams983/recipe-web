@@ -19,16 +19,12 @@ export class RecipesListComponent implements OnInit {
   }
 
   onSelectType(){
-    if(this.type){
       this.recipeService.type = this.type;
     this.recipeService.getRecipesList().subscribe((res) =>{
       if(res['status'] == 200){
         this.recipes = res['recipes'];
       }
     });
-  }else{
-    this.filters.onSelect("");
   }
-    }
 
 }

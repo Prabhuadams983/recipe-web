@@ -32,8 +32,8 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
+  providers: [RecipeService,FiltersComponent],
   entryComponents:[AddComponent],
-  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
