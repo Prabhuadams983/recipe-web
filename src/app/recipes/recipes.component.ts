@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddComponent } from './add/add.component';
 import { RecipeService } from '../services/recipe.service';
 
 @Component({
@@ -9,8 +11,8 @@ import { RecipeService } from '../services/recipe.service';
 export class RecipesComponent implements OnInit {
   recipeName:string;
   recipesList:any[]=[];
-  constructor(private recipeService : RecipeService) { }
-
+  constructor(private recipeService : RecipeService,private dialog:MatDialog) { }
+  
   ngOnInit() {
     this.recipeService.getRecipesList().subscribe((res) =>{
       if(res['status'] == 200){
@@ -19,6 +21,10 @@ export class RecipesComponent implements OnInit {
     });
   }
 
+  clickAdd(){
+    this.dialog.open(AddComponent,{width:"250px"});
+  }
+  
   get(event){
     if(event.keyCode === 13){
       this.recipeService.name = this.recipeName;

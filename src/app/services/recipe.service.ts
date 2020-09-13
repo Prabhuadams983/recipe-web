@@ -23,4 +23,11 @@ export class RecipeService {
     }
     return this._http.get(`${this.url}/get`,{params});
   }
+
+  addRecipe(data){
+    this._http.post(this.url+'/add',data).subscribe((response)=>{
+  
+
+  });
+}
 }
