@@ -1,21 +1,20 @@
 <mat-card>
     <mat-card-content>
-        <div class="category">
+        <div class="category" [ngClass]="{'active':menu === 'NI'}" (click)="onSelect('NI')">
             <img src="assets/north-indian.jpg">
             <p>North Indian</p>
         </div>
-        <div class="category">
+        <div class="category" [ngClass]="{'active':menu === 'SI'}" (click)="onSelect('SI')">
             <img src="assets/south-indian.jpg">
             <p>South Indian</p>
         </div>
-        <div class="category">
+        <div class="category" [ngClass]="{'active':menu === 'C'}" (click)="onSelect('C')">
             <img src="assets/chinese.jpg">
             <p>Chinese</p>
         </div>
-        <div class="category">
+        <div class="category" [ngClass]="{'active':menu === 'I'}" (click)="onSelect('I')">
             <img src="assets/italian.jpg">
             <p>Italian</p>
         </div>
-
     </mat-card-content>
 </mat-card>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FiltersComponent } from '../filters/filters.component';
 import { RecipeService } from '../services/recipe.service';
 
 @Component({
@@ -9,19 +10,25 @@ import { RecipeService } from '../services/recipe.service';
 export class RecipesListComponent implements OnInit {
 
   @Input() recipes:any[];
-  private type:string
-  constructor(private recipeService : RecipeService) {
+  private type:string="";  
+  constructor(private recipeService : RecipeService,
+    private filters : FiltersComponent) {
    }
 
   ngOnInit() {
   }
+
   onSelectType(){
-    this.recipeService.type = this.type;
+    if(this.type){
+      this.recipeService.type = this.type;
     this.recipeService.getRecipesList().subscribe((res) =>{
       if(res['status'] == 200){
         this.recipes = res['recipes'];
       }
     });
+  }else{
+    this.filters.onSelect("");
   }
+    }
 
 }

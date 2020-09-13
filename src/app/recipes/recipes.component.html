@@ -9,4 +9,4 @@
 </mat-toolbar>
 <app-filters></app-filters>
 
-<app-recipes-list [recipes]="recipesList"></app-recipes-list>
+<app-recipes-list [recipes]="recipesList" (recipesEmitter)="loadRecipes($event)"></app-recipes-list>

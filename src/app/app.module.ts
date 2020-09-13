@@ -27,7 +27,7 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RecipeService],
+  providers: [RecipeService,FiltersComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
