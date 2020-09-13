@@ -23,6 +23,6 @@ input[type="text"]{
     background-image: url('../../assets/icons8-search-24.png');
     background-position-y: center;
     background-origin: border-box;
-    background-position-x: right;
+    background-position-x: 98%;
     background-repeat: no-repeat;
 }

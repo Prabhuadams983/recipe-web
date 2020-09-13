@@ -11,11 +11,11 @@ import { RecipeService } from '../services/recipe.service';
 export class RecipesComponent implements OnInit {
   recipeName:string;
   recipesList:any[]=[];
+  constructor(private recipeService : RecipeService) { }
   constructor(private recipeService : RecipeService,private dialog:MatDialog) { 
 
   }
-  
-
+ 
 
   ngOnInit() {
     this.recipeService.getRecipesList().subscribe((res) =>{
@@ -42,6 +42,10 @@ export class RecipesComponent implements OnInit {
         this.ngOnInit();
       }
     }
+  }
+
+  loadRecipes(event){
+    console.log(event);
   }
 
 }
