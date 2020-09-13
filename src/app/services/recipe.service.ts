@@ -26,8 +26,6 @@ export class RecipeService {
 
   addRecipe(data){
     this._http.post(this.url+'/add',data).subscribe((response)=>{
-  
-
   });
 }
 }
