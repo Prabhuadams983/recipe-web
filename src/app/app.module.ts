@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,6 +12,8 @@ import { RecipeItemComponent } from './recipes-list/recipe-item/recipe-item.comp
 import { AddComponent } from './recipes/add/add.component';
 import { ViewComponent } from './recipes/view/view.component';
 
+import { RecipeService } from './services/recipe.service';
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,10 +28,12 @@ import { ViewComponent } from './recipes/view/view.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
   entryComponents:[AddComponent],
+  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

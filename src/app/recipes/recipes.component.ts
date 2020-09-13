@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddComponent } from './add/add.component';
+import { RecipeService } from '../services/recipe.service';
 
 @Component({
   selector: 'app-recipes',
@@ -8,8 +9,13 @@ import { AddComponent } from './add/add.component';
   styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent implements OnInit {
+  recipeName:string;
+  recipesList:any[]=[];
+  constructor(private recipeService : RecipeService,private dialog:MatDialog) { 
 
-  constructor(private dialog:MatDialog) { }
+  }
+  
+
 
   ngOnInit() {
   }
@@ -17,4 +23,15 @@ export class RecipesComponent implements OnInit {
   clickAdd(){
     this.dialog.open(AddComponent,{width:"250px"});
   }
+  get(event){
+    if(event.keyCode === 13){
+      this.recipeService.name = this.recipeName;
+        this.recipeService.getRecipesList().subscribe((res) =>{
+          if(res['status'] == 200){
+            this.recipesList = res['recipes'];
+          }
+        });
+    }
+  }
+
 }
