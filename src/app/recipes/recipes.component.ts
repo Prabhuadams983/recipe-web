@@ -11,18 +11,20 @@ import { RecipeService } from '../services/recipe.service';
 export class RecipesComponent implements OnInit {
   recipeName:string;
   recipesList:any[]=[];
-  constructor(private recipeService : RecipeService,private dialog:MatDialog) { 
-
-  }
-  
-
+  constructor(private recipeService : RecipeService,private dialog:MatDialog) { }
 
   ngOnInit() {
+    this.recipeService.getRecipesList().subscribe((res) =>{
+      if(res['status'] == 200){
+        this.recipesList = res['recipes'];
+      }
+    });
   }
 
   clickAdd(){
     this.dialog.open(AddComponent,{width:"250px"});
   }
+  
   get(event){
     if(event.keyCode === 13){
       this.recipeService.name = this.recipeName;
@@ -31,7 +33,16 @@ export class RecipesComponent implements OnInit {
             this.recipesList = res['recipes'];
           }
         });
+    }else{
+      if(this.recipeName.length === 1){
+        this.recipeService.name = "";
+        this.ngOnInit();
+      }
     }
+  }
+
+  loadRecipes(event){
+    console.log(event);
   }
 
 }
