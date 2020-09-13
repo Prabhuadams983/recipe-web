@@ -9,10 +9,12 @@ import { RecipeService } from '../services/recipe.service';
 })
 export class RecipesListComponent implements OnInit {
 
-  @Input() recipes:any[];
-  private type:string="";  
-  constructor(private recipeService : RecipeService,
-    private filters : FiltersComponent) {
+  private type:string=""; 
+  private recipes;
+  constructor(private recipeService : RecipeService) {
+        this.recipeService.recipesList.subscribe((list) => {
+          this.recipes = list;
+        });
    }
 
   ngOnInit() {
@@ -20,11 +22,7 @@ export class RecipesListComponent implements OnInit {
 
   onSelectType(){
       this.recipeService.type = this.type;
-    this.recipeService.getRecipesList().subscribe((res) =>{
-      if(res['status'] == 200){
-        this.recipes = res['recipes'];
-      }
-    });
+      this.recipeService.getRecipesList();
   }
 
 }

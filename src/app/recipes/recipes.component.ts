@@ -14,11 +14,7 @@ export class RecipesComponent implements OnInit {
   constructor(private recipeService : RecipeService,private dialog:MatDialog) { }
 
   ngOnInit() {
-    this.recipeService.getRecipesList().subscribe((res) =>{
-      if(res['status'] == 200){
-        this.recipesList = res['recipes'];
-      }
-    });
+    this.getList();
   }
 
   clickAdd(){
@@ -27,22 +23,16 @@ export class RecipesComponent implements OnInit {
   
   get(event){
     if(event.keyCode === 13){
-      this.recipeService.name = this.recipeName;
-        this.recipeService.getRecipesList().subscribe((res) =>{
-          if(res['status'] == 200){
-            this.recipesList = res['recipes'];
-          }
-        });
-    }else{
-      if(this.recipeName.length === 1){
-        this.recipeService.name = "";
-        this.ngOnInit();
-      }
+      this.recipeService.searchRecipe(this.recipeName);
+      this.recipeName = null;
     }
   }
 
-  loadRecipes(event){
-    console.log(event);
+  getList(){
+    this.recipeService.getRecipesList();
   }
 
+  ngOnDestroy(){
+    this.recipeService.recipesList.unsubscribe();
+  }
 }

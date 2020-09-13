@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { RecipeService } from 'src/app/services/recipe.service';
+import { RecipesComponent } from '../recipes.component';
 
 @Component({
   selector: 'app-add',
@@ -15,13 +17,12 @@ export class AddComponent implements OnInit {
   data:any;
 
 
-  constructor(private recipeService:RecipeService) { }
+  constructor(private recipeService:RecipeService,private dialog:MatDialog) { }
 
   ngOnInit() {
   }
 
   saveRecipe(){
-    console.log(this.foodType,this.foodCategory);
     this.data=
     {
       "name":this.recipeName,
@@ -29,11 +30,12 @@ export class AddComponent implements OnInit {
       "type":this.foodType,
       "steps":this.recipeSteps
     }
-    this.recipeService.addRecipe(this.data);
-    
-
-    
-
+    this.recipeService.addRecipe(this.data).subscribe((res) => {
+      if(res['status'] == 200){
+          this.dialog.closeAll();
+          this.recipeService.getRecipesList();
+      }
+    });
 
   }
 

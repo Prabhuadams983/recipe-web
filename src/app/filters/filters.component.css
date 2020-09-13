@@ -1,5 +1,5 @@
 mat-card{
-    width:30%;
+    width:35%;
     margin: 20px auto;
     color: #ff4081;
     padding: 10px!important;
@@ -9,6 +9,7 @@ mat-card-title{
     text-align: center;
 }
 .category{
+    padding: 10px;
     text-align: center;
     cursor:pointer;
 }
@@ -19,9 +20,10 @@ mat-card-title{
 }
 .category p{
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 0.85rem;
     margin-top: 0px;
     margin-bottom: 0px;
+    white-space: nowrap;
 }
 mat-card-content{
     display: flex;
@@ -30,7 +32,7 @@ mat-card-content{
 }
 .active{
     border: 1px solid #ff4081;
-    padding: 2px;
+    padding: 6px 12px;
     border-radius: 5px;
     background: #ff4081;
     color: #fff;
