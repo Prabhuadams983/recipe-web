@@ -1,0 +1,13 @@
+button{
+  
+    margin-left: auto;
+}
+
+mat-form-field {
+    margin-left: 2%;
+    margin-top: 1%!important;
+}
+
+mat-label{
+    margin-bottom: 3px;
+}

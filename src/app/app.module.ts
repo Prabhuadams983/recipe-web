@@ -9,6 +9,9 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { FiltersComponent } from './filters/filters.component';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { RecipeItemComponent } from './recipes-list/recipe-item/recipe-item.component';
+import { AddComponent } from './recipes/add/add.component';
+import { ViewComponent } from './recipes/view/view.component';
+
 import { RecipeService } from './services/recipe.service';
 import {HttpClientModule} from '@angular/common/http';
 @NgModule({
@@ -17,7 +20,9 @@ import {HttpClientModule} from '@angular/common/http';
     RecipesComponent,
     FiltersComponent,
     RecipesListComponent,
-    RecipeItemComponent
+    RecipeItemComponent,
+    AddComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,8 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RecipeService,FiltersComponent],
+  entryComponents:[AddComponent],
+  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
