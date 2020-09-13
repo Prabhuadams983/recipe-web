@@ -12,7 +12,7 @@ export class RecipesComponent implements OnInit {
   recipeName:string;
   recipesList:any[]=[];
   constructor(private recipeService : RecipeService,private dialog:MatDialog) { }
-  
+
   ngOnInit() {
     this.recipeService.getRecipesList().subscribe((res) =>{
       if(res['status'] == 200){
